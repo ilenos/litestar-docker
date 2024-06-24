@@ -45,7 +45,7 @@ RUN apt-get install -y --no-install-recommends build-essential curl \
 
 ## -------------------------- install application ----------------------------------- ##
 WORKDIR /workspace/app
-COPY pyproject.toml pdm.lock README.md LICENSE app.py ./
+COPY pyproject.toml pdm.lock README.md LICENSE ./
 #COPY scripts ./scripts/
 #COPY public ./public/
 #COPY resources ./resources/
@@ -60,7 +60,7 @@ COPY src ./src/
 ## ------------------------- use builder base --------------------------------------- ##
 FROM build-base as dev-image
 ARG ENV_SECRETS="runtime-secrets"
-#ARG LITESTAR_APP="app.app:app"
+ARG LITESTAR_APP="app.asgi:app"
 ## --------------------------- standardize execution env ----------------------------- ##
 ENV PATH="/workspace/app/.venv/bin:$PATH" \
   VIRTUAL_ENV="/workspace/app/.venv" \
@@ -76,12 +76,12 @@ ENV PATH="/workspace/app/.venv/bin:$PATH" \
   LC_ALL=C.UTF-8 \
   LITESTAR_APP="${LITESTAR_APP}"
 WORKDIR /workspace/app
-#COPY docs/ docs/
-COPY tests/ tests/
 COPY src src/
+COPY tests tests/
 RUN pdm install $PDM_INSTALL_ARGS
 STOPSIGNAL SIGINT
 EXPOSE 8000
+WORKDIR /workspace/app/src
 ENTRYPOINT ["tini","--" ]
 CMD [ "litestar","run","--host","0.0.0.0"]
 VOLUME /workspace/app

@@ -5,7 +5,7 @@ import pytest
 from litestar import Litestar
 from litestar.testing import AsyncTestClient
 
-from app import app
+from app.asgi import app
 
 
 @pytest.fixture(scope="function")
