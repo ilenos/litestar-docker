@@ -1,0 +1,27 @@
+[project]
+name = "github-actions-test"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Jarod Daming", email = "jmdaming@gmail.com"},
+]
+dependencies = [
+    "litestar[standard]>=2.9.0"
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.2.2",
+]
+
+[tool.hatch.build]
+dev-mode-dirs = ["src/"]
+include = ["CHANGELOG.md", "src/public/**/*", "src/app/**/*.sql", "src/app/lib/db/**/*.ini"]
+packages = ["src/app"]
