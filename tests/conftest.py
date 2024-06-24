@@ -7,10 +7,13 @@ from litestar.testing import AsyncTestClient
 
 from app import app
 
-pytestmark = pytest.mark.anyio
-
 
 @pytest.fixture(scope="function")
 async def test_client() -> AsyncIterator[AsyncTestClient[Litestar]]:
     async with AsyncTestClient(app=app) as client:
         yield client
+
+
+@pytest.fixture(scope="session")
+def anyio_backend() -> str:
+    return "asyncio"

@@ -2,10 +2,10 @@
 # It is not intended for manual editing.
 
 [metadata]
-groups = ["default", "test"]
+groups = ["default", "test", "pytest-asyncio"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:1dfcbbdfef5807bcad1141e3d4d80b61d6b3a6b5618de415a1256dc728e2980d"
+content_hash = "sha256:476a38ebdb0fdde6b7d5a4dcdacc7ab03afa4125b8b1fc8cc602ee892ea3ee19"
 
 [[package]]
 name = "anyio"
@@ -226,7 +226,7 @@ files = [
 
 [[package]]
 name = "litestar"
-version = "2.9.0"
+version = "2.9.1"
 requires_python = "<4.0,>=3.8"
 summary = "Litestar - A production-ready, highly performant, extensible ASGI API Framework"
 groups = ["default"]
@@ -243,13 +243,13 @@ dependencies = [
     "typing-extensions",
 ]
 files = [
-    {file = "litestar-2.9.0-py3-none-any.whl", hash = "sha256:25235ad99f08807e633347fa509dcf5989153bde9b6a82e521b1f056af33becc"},
-    {file = "litestar-2.9.0.tar.gz", hash = "sha256:bea384c9ddae74bcb0d96ecb6dc1b51f8a13d50173cdfd56bfd2627ede505154"},
+    {file = "litestar-2.9.1-py3-none-any.whl", hash = "sha256:fe3e4ec91a9c24af652775fed5fa4d789902f165cabbd7d2e62821fec1f69462"},
+    {file = "litestar-2.9.1.tar.gz", hash = "sha256:7c13bb4dd7b1c77f6c462262cfe401ca6429eab3e4d98f38586b68268bd5ac97"},
 ]
 
 [[package]]
 name = "litestar"
-version = "2.9.0"
+version = "2.9.1"
 extras = ["standard"]
 requires_python = "<4.0,>=3.8"
 summary = "Litestar - A production-ready, highly performant, extensible ASGI API Framework"
@@ -258,13 +258,13 @@ dependencies = [
     "fast-query-parsers>=1.0.2",
     "jinja2",
     "jsbeautifier",
-    "litestar==2.9.0",
+    "litestar==2.9.1",
     "uvicorn[standard]",
     "uvloop>=0.18.0; sys_platform != \"win32\"",
 ]
 files = [
-    {file = "litestar-2.9.0-py3-none-any.whl", hash = "sha256:25235ad99f08807e633347fa509dcf5989153bde9b6a82e521b1f056af33becc"},
-    {file = "litestar-2.9.0.tar.gz", hash = "sha256:bea384c9ddae74bcb0d96ecb6dc1b51f8a13d50173cdfd56bfd2627ede505154"},
+    {file = "litestar-2.9.1-py3-none-any.whl", hash = "sha256:fe3e4ec91a9c24af652775fed5fa4d789902f165cabbd7d2e62821fec1f69462"},
+    {file = "litestar-2.9.1.tar.gz", hash = "sha256:7c13bb4dd7b1c77f6c462262cfe401ca6429eab3e4d98f38586b68268bd5ac97"},
 ]
 
 [[package]]
@@ -450,6 +450,20 @@ dependencies = [
 files = [
     {file = "pytest-8.2.2-py3-none-any.whl", hash = "sha256:c434598117762e2bd304e526244f67bf66bbd7b5d6cf22138be51ff661980343"},
     {file = "pytest-8.2.2.tar.gz", hash = "sha256:de4bb8104e201939ccdc688b27a89a7be2079b22e2bd2b07f806b6ba71117977"},
+]
+
+[[package]]
+name = "pytest-asyncio"
+version = "0.23.7"
+requires_python = ">=3.8"
+summary = "Pytest support for asyncio"
+groups = ["test"]
+dependencies = [
+    "pytest<9,>=7.0.0",
+]
+files = [
+    {file = "pytest_asyncio-0.23.7-py3-none-any.whl", hash = "sha256:009b48127fbe44518a547bddd25611551b0e43ccdbf1e67d12479f569832c20b"},
+    {file = "pytest_asyncio-0.23.7.tar.gz", hash = "sha256:5f5c72948f4c49e7db4f29f2521d4031f1c27f86e57b046126654083d4770268"},
 ]
 
 [[package]]
