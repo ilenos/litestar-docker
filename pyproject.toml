@@ -1,3 +1,7 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
 [project]
 name = "github-actions-test"
 version = "0.1.0"
@@ -12,6 +16,8 @@ requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
 
+[project.scripts]
+app = "app.asgi:create_app"
 
 [tool.pdm]
 distribution = false
@@ -22,7 +28,14 @@ test = [
     "pytest-asyncio>=0.23.7",
 ]
 
-[tool.hatch.build]
-dev-mode-dirs = ["src/"]
-include = ["CHANGELOG.md", "src/public/**/*", "src/app/**/*.sql", "src/app/lib/db/**/*.ini"]
-packages = ["src/app"]
+[tool.pdm.version]
+source = "scm"
+write_to = "pdm/models/VERSION"
+
+[tool.pdm.build]
+excludes = ["./**/.git"]
+package-dir = "src"
+includes = ["src/pdm"]
+source-includes = ["tests", "typings", "CHANGELOG.md", "LICENSE", "README.md", "tox.ini"]
+# editables backend doesn't work well with namespace packages
+editable-backend = "path"

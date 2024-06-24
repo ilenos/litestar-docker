@@ -11,4 +11,10 @@ async def get_book(book_id: int) -> dict[str, int]:
     return {"book_id": book_id}
 
 
-app = Litestar([index, get_book])
+def create_app() -> Litestar:
+    return Litestar(
+        route_handlers=[index, get_book]
+    )
+
+
+app = create_app()

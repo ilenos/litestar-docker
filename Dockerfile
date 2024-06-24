@@ -81,7 +81,6 @@ COPY tests tests/
 RUN pdm install $PDM_INSTALL_ARGS
 STOPSIGNAL SIGINT
 EXPOSE 8000
-WORKDIR /workspace/app/src
 ENTRYPOINT ["tini","--" ]
-CMD [ "litestar","run","--host","0.0.0.0"]
+CMD [ "litestar", "run","--host","0.0.0.0"]
 VOLUME /workspace/app
