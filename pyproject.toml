@@ -35,7 +35,7 @@ write_to = "pdm/models/VERSION"
 [tool.pdm.build]
 excludes = ["./**/.git"]
 package-dir = "src"
-includes = ["src/app"]
+includes = ["app/"]
 source-includes = ["tests", "typings", "CHANGELOG.md", "LICENSE", "README.md", "tox.ini"]
 # editables backend doesn't work well with namespace packages
 editable-backend = "path"

@@ -63,6 +63,7 @@ ARG ENV_SECRETS="runtime-secrets"
 ARG LITESTAR_APP="app.asgi:app"
 ## --------------------------- standardize execution env ----------------------------- ##
 ENV PATH="/workspace/app/.venv/bin:$PATH" \
+  PYTHONPATH=".:./src" \
   VIRTUAL_ENV="/workspace/app/.venv" \
   ENV_SECRETS="${ENV_SECRETS}"  \
   PIP_DEFAULT_TIMEOUT=100 \
