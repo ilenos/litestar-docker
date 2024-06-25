@@ -6,4 +6,9 @@ services:
     image: app:latest
     restart: always
     ports:
-      - "8000:8000"
+      - "8089:8089"
+    environment:
+      VITE_USE_SERVER_LIFESPAN: "false" # true if ssr or separate service
+      SAQ_USE_SERVER_LIFESPAN: "false"
+    env_file:
+      - .env
